@@ -2,9 +2,9 @@
 
 - [What is Inheritance](#what-is-inheritance)
 
-## What is Inheritance
+## Review Inheritance
 
-__Inheritance__ is a fundamental concept in Object-Oriented Programming (OOP) that allows a new class to inherit properties and methods from an existing class. It enables the creation of a hierarchy, where a more specialized class, known as the __child class__, can reuse and extend the functionality of a more generalized class, known as the __parent class__.
+Like we mentioned last week, __Inheritance__ is a fundamental concept in Object-Oriented Programming that allows a new class to inherit properties and methods from an existing class. Today we'll learn how it enables the creation of a hierarchy, where a more specialized class, known as the __child class__, can reuse and extend the functionality of a more generalized class, known as the __parent class__.
 
 ```js
 class Animal {
@@ -59,7 +59,7 @@ Similarly, the `Cat` class extends the `Animal` class. The `super(name, 'Meow')`
 Now, let's discuss the child/parent relationship. When a class extends another class, it inherits its properties and methods. In our example, both `Dog` and `Cat` inherit the `makeSound` method from the Animal class. This relationship allows for code reuse and the creation of a structured class hierarchy.
 
 
-## Polymorphism in Action
+### Polymorphism in Action
 Polymorphism is a key concept in OOP that allows objects of different types to be treated as objects of a common type. In our example, polymorphism is evident through the makeSound method.
 
 ```js
@@ -74,5 +74,12 @@ myCat.purr(); // Whiskers is purring.
 ```
 Here, both myDog and myCat have a makeSound method inherited from the Animal class. Although they are instances of different classes (Dog and Cat), we can treat them uniformly by calling the common makeSound method. This demonstrates polymorphism, allowing objects of different types to be used interchangeably.
 
+## Challenge: Implementing a Vehicle Hierarchy
+As a class, let's create a parent class `Vehicle` and two child classes `Car` and `Motorcycle`. The `Vehicle` class should have properties like make, model, and year. Each child class should introduce its own unique method. Share your solutions with the class!
+
 ## Summary
-Inheritance using extends and super in JavaScript classes allows for the creation of a hierarchy, where child classes inherit properties and methods from a parent class. This enables the establishment of relationships and the reuse of code. The child/parent relationship is a powerful concept in Object-Oriented Programming, and polymorphism allows for flexibility in treating objects of different types in a uniform manner.
+* Inheritance using extends and super in JavaScript classes allows for the creation of a hierarchy.
+* Child classes inherit properties and methods from a parent class.
+* This enables the establishment of relationships and the reuse of code.
+* The child/parent relationship is a powerful concept in Object-Oriented Programming.
+* Polymorphism allows for flexibility in treating objects of different types in a uniform manner.
