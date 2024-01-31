@@ -16,9 +16,39 @@ class Animal {
   makeSound() {
     console.log(this.sound);
   }
+
+  static generateRandomSound() {
+    const possibleSounds = ['Meow', 'Woof', 'Moo', 'Roar', 'Chirp', 'Oink'];
+    const randomIndex = Math.floor(Math.random() * possibleSounds.length);
+    return possibleSounds[randomIndex];
+  }
 }
 ```
-Here, we have a simple `Animal` class with a constructor that initializes the `name` and `sound` properties. Additionally, it has an instance method `makeSound` that logs the sound of the animal.
+Here, we have a simple `Animal` class with a constructor that initializes the `name` and `sound` properties. Additionally, it has an instance method `makeSound` that logs the sound of the animal and a static method `generateRandomSound` that returns a random sound from a predefined array of possible animal sounds.
+
+**<details><summary style="color: purple">Q. Why is `generateRandomSound` a static method and not a instance method?</summary>**
+The method doesn't use or modify any instance-specific properties or state (e.g., name or sound).
+
+It's purpose of the method is to provide a utility function 
+
+Class-Level Operation: the operation of generating a random sound is associated with the class as a whole, rather than with individual instances
+</details>
+
+## Instance review
+
+We can use the `Animal` class to make an instance:
+
+```js
+const dog = new Animal('dog', 'woof');
+console.log(dog);
+dog.makeSound();
+
+const cat = new Animal('cat', Animal.generateRandomSound());
+console.log(cat);
+cat.makeSound();
+```
+
+This is cool but what if we wanted the cat to have different behaviors than dog? We can do this by making a child class that extends the `Animal` class.
 
 ## Extending the Animal Class
 
@@ -63,16 +93,16 @@ Now, let's discuss the child/parent relationship. When a class extends another c
 Polymorphism is a key concept in OOP that allows objects of different types to be treated as objects of a common type. In our example, polymorphism is evident through the makeSound method.
 
 ```js
-const myDog = new Dog('Buddy', 'Golden Retriever');
-const myCat = new Cat('Whiskers', 'Gray');
+const viva = new Dog('Viva', 'pitbull');
+const tiger = new Cat('tiger', 'European shorthair')
 
-myDog.makeSound(); // Woof
-myDog.wagTail(); // Buddy is wagging its tail.
+viva.makeSound(); // Woof
+viva.wagTail(); // Buddy is wagging its tail.
 
-myCat.makeSound(); // Meow
-myCat.purr(); // Whiskers is purring.
+tiger.makeSound(); // Meow
+tiger.purr(); // Whiskers is purring.
 ```
-Here, both myDog and myCat have a makeSound method inherited from the Animal class. Although they are instances of different classes (Dog and Cat), we can treat them uniformly by calling the common makeSound method. This demonstrates polymorphism, allowing objects of different types to be used interchangeably.
+Here, both `viva` and `tiger` have a `makeSound` method inherited from the Animal class. Although they are instances of different classes (Dog and Cat), we can treat them uniformly by calling the common makeSound method. This demonstrates polymorphism, allowing objects of different types to be used interchangeably.
 
 ## Challenge: Implementing a Vehicle Hierarchy
 As a class, let's create a parent class `Vehicle` and two child classes `Car` and `Motorcycle`. The `Vehicle` class should have properties like make, model, and year. Each child class should introduce its own unique method. Share your solutions with the class!
